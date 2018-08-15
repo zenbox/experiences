@@ -1,0 +1,53 @@
+/**
+ * styles for D3 Basics
+ * @author Michael
+ * @since 2018/07/11
+ */
+
+html {
+  color: hsla(360, 0%, 100%, 1);
+  background-color: hsla(360, 0%, 10%, 1);
+}
+
+svg {
+  border-color: lightsteelblue;
+  border-width: 5px;
+  border-style: solid;
+}
+
+circle, rect {
+  stroke: lsteelblue;
+  stroke-width: 1px;
+  fill: white;
+}
+
+text {
+  fill: white;
+}
+
+svg .domain {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+svg .tick line {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+svg .tick text {
+  fill: white;
+  font-family: monospace;
+}
+
+svg path {
+  fill: hsla(360, 0%, 30%, 1);
+  stroke: white;
+  stroke-width: 1px;
+}
+
+.mouseEnter {
+  fill: lime;
+}
