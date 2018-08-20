@@ -7,3 +7,8 @@
   stroke: #fff;
   stroke-width: 1.5px;
 }
+
+svg {
+  font-family: Menlo, monospace;
+  font-size: 10px;
+}
