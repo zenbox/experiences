@@ -15,7 +15,7 @@ svg {
   border-style: solid;
 }
 
-circle, rect {
+#circle, #rect {
   stroke: lsteelblue;
   stroke-width: 1px;
   fill: white;
@@ -48,6 +48,18 @@ svg path {
   stroke-width: 1px;
 }
 
+svg .line {
+  fill: none;
+  stroke: rgba(200, 200, 200, 0.25);
+  stroke-width: 1px;
+}
+
 .mouseEnter {
   fill: lime;
+}
+
+table * {
+  font-family: Menlo, monospace;
+  font-size: 0.8rem;
+  color: white;
 }
