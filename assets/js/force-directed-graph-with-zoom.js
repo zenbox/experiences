@@ -244,7 +244,7 @@
 
       // building the nodes by circles
       groupData = root.selectAll()
-        .data(graph.nodes)
+        .data(graph.nodes);
 
       group = groupData.enter()
         .append('g')
