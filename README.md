@@ -19,4 +19,4 @@ http://www.michaelreichart.de/force-directed-graph-mit-d3-v4-v5/
 - Zooming into a force graph: http://bl.ocks.org/TWiStErRob/b1c62730e01fe33baa2dea0d0aa29359
 - SVG Reference: https://www.w3schools.com/graphics/svg_reference.asp
 - Brush Snapping: http://blockbuilder.org/danharr/b68a39ec0e1419eb9cb8cddb64379b43
-- 
+- Zooming with d3.v4/v5 https://bl.ocks.org/mwdchang/a88aa3f61f5a2243d15bb8a264aa432e
