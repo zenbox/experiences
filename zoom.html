@@ -57,7 +57,7 @@
         stroke-antialiasing: true;
       }
     </style>
-    <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   </head>
 
   <body>
@@ -81,8 +81,8 @@
     </div>
     <script>
       //<![CDATA[
-      // var zoom = d3.behavior
-      var zoom = d3.zoom()
+      var zoom = d3.behavior
+        .zoom()
         .scaleExtent([1 / 4, 4])
         .on('zoom.zoom', function() {
           console.trace("zoom", d3.event.translate, d3.event.scale);
@@ -108,11 +108,11 @@
       var node_group = svg.select('#nodes');
       var link_group = svg.select('#links');
 
-      var force = d3.forceSimulation()
-        //.gravity(0.03)
-        //.linkStrength(0.3)
-        //.charge(-400)
-        .force("center", d3.forceCenter(svg.width / 2, svg.height / 2))
+      var force = d3.layout
+        .force()
+        .gravity(0.03)
+        .linkStrength(0.3)
+        .charge(-400)
         .on('tick', function tick() {
           link.attr("x1", function(d) {
               return d.source.x;

@@ -6,7 +6,9 @@
   let
     canvas = undefined,
     svg = undefined,
+    root = undefined,
     scale = undefined,
+    zoom = undefined,
     xScale = undefined,
     yScale = undefined,
     w = undefined,
@@ -16,10 +18,12 @@
     f = undefined,
 
     setCanvas = undefined,
+    setRoot = undefined,
     setXScale = undefined,
     setYScale = undefined,
     setXAxis = undefined,
     setYAxis = undefined,
+    setZoom = undefined,
     color, simulation, link, node, group, groupData, nest;
 
   // - - - - - - - - - -
@@ -69,12 +73,29 @@
   // - - - - - - - - - -
   // functions
   // - - - - - - - - - -
+  setZoom = function () {
+    zoom = d3.zoom()
+      .scaleExtent([1 / 4, 4])
+      .on('zoom', function () {
+        console.trace("zoom", d3.event.translate, d3.event.scale);
+        root.attr('transform',
+          'translate(' + d3.event.transform.x + ',' + d3.event.transform.y + ')' +
+          'scale(' + d3.event.transform.k + ')');
+      });
+  }
+
   setCanvas = function (contextSelector) {
     svg = d3.select(contextSelector)
       .append('svg')
       .attr('width', canvas.width)
       .attr('height', canvas.height)
       .attr('viewbox', canvas.viewbox.x + ' ' + canvas.viewbox.y + ' ' + canvas.viewbox.width + ' ' + canvas.viewbox.height)
+      .call(zoom)
+  };
+
+  setRoot = function (id) {
+    root = svg.append('g')
+      .attr('id', id);
   };
 
   setXScale = function () {
@@ -156,10 +177,12 @@
   // - - - - - - - - - -
   // control
   // - - - - - - - - - -
+  setZoom();
   setCanvas('#diagram');
+  setRoot('#root');
+
   // setXAxis();
   // setYAxis();
-
   d3.json('assets/data/miserables.json')
     .then(function (graph) {
 
@@ -174,9 +197,6 @@
         .entries(graph.links);
 
       console.log(graphLinksBySource);
-      /*
-
-       */
 
       // count links per name
       // and save as object
@@ -212,7 +232,7 @@
         .force('center', d3.forceCenter(canvas.width / 2, canvas.height / 2));
 
       // building the links
-      link = svg.append("g")
+      link = root.append("g")
         .attr("class", "links")
         .selectAll("line")
         .data(graph.links)
@@ -223,7 +243,7 @@
         });
 
       // building the nodes by circles
-      groupData = svg.selectAll()
+      groupData = root.selectAll()
         .data(graph.nodes)
 
       group = groupData.enter()
