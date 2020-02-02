@@ -10,7 +10,7 @@ Just download the folder and add the following line to your HTML file. Configure
 ```
 
 ## How to use
-```log()``` is a global function (```window.log()```), so you can just write the follwoning lines:
+```log()``` is a global function (```window.log()```), so you can use it as:
 
 ```javascript
 log('hello world);
