@@ -6,7 +6,7 @@ An simple inpage-log function,
 Just download the folder and add the following line to your HTML file. Configure your path.
 
 ```javascript
-<script src="libs/inpage-log/inpage-log-1.0.0.js"></script>
+<script src="libs/inpage-log/inpage-log-1.1.0.js"></script>
 ```
 
 ## How to use
